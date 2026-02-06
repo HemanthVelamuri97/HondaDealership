@@ -1,5 +1,7 @@
 package com.dealership.honda.entity;
 
+import com.dealership.honda.enums.ServiceJobStatus;
+import com.dealership.honda.enums.ServiceType;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -12,13 +14,17 @@ public class ServiceJob {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long customer_id;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customerId;
 
-    private Long vehicle_id;
+    @ManyToOne
+    @JoinColumn(name = "vehicle_id")
+    private Vehicle vehicleId;
 
-    private String service_type;
+    private ServiceType service_type;
 
-    private String status;
+    private ServiceJobStatus status;
 
     private int estimate;
 

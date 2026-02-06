@@ -1,5 +1,9 @@
 package com.dealership.honda.entity;
 
+import com.dealership.honda.enums.ExteriorColor;
+import com.dealership.honda.enums.Model;
+import com.dealership.honda.enums.Trim;
+import com.dealership.honda.enums.VehicleStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,9 +22,9 @@ public class Vehicle {
 
     private String make;
 
-    private String model; //ENUM
+    private Model model; //ENUM
 
-    private String trim; //ENUM
+    private Trim trim; //ENUM
 
     private String year;
 
@@ -28,7 +32,7 @@ public class Vehicle {
 
     private String mileage;
 
-    private String exterior_color; //ENUM
+    private ExteriorColor exterior_color; //ENUM
 
-    private String status; //ENUM
+    private VehicleStatus status; //ENUM
 }

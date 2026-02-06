@@ -1,5 +1,6 @@
 package com.dealership.honda.entity;
 
+import com.dealership.honda.enums.Role;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class Employee {
 
     private String name;
 
-    private String role;
+    private Role role;
 
     private String email;
 

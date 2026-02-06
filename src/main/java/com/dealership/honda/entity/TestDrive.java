@@ -1,5 +1,6 @@
 package com.dealership.honda.entity;
 
+import com.dealership.honda.enums.TestDriveStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -11,14 +12,18 @@ public class TestDrive {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long saleslead_id;
+    @ManyToOne
+    @JoinColumn(name = "saleslead_id")
+    private SalesLead salesLeadId;
 
-    private Long vehicle_id;
+    @ManyToOne
+    @JoinColumn(name  = "vehicle_id")
+    private Vehicle vehicleId;
 
     @Column(name ="created_at", insertable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    private String status;
+    private TestDriveStatus testDriveStatus;
 
     private String notes;
 }
