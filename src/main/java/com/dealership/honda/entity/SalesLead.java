@@ -5,9 +5,11 @@ import com.dealership.honda.enums.SalesLeadStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
-@Table(name = "salesLead")
+@Table(name = "sales_lead")
 public class SalesLead {
 
     @Id
@@ -16,20 +18,24 @@ public class SalesLead {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer customerId;
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "vehicle_id")
-    private Vehicle vehicleId;
+    private Vehicle vehicle;
 
     @ManyToOne
     @JoinColumn(name = "assigned_to")
     private Employee assignedTo;
-    //ENUM
-    @Enumerated
+
+    @Enumerated(EnumType.STRING)
     private SalesLeadSource source;
-    //ENUM
+
+    @Enumerated(EnumType.STRING)
     private SalesLeadStatus status;
 
     private String notes;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 }
